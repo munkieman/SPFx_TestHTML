@@ -43,7 +43,7 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     }else{
       html+=`<div class="accordion" id="accordionPF">
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
+                  <h2 class="accordion-header" id="headingPF">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
                       <i class="bi bi-folder2"></i>
                       <a href="#" class="text-white ms-1">Folder</a>
@@ -60,7 +60,7 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
                     <div class="accordion" id="accordionSF1">                             
                       <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSF1">
-                          <button class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF2" aria-expanded="false" aria-controls="collapseSF3-1">
+                          <button class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF2" aria-expanded="false" aria-controls="collapseSF1">
                             <i class="bi bi-folder2"></i>
                             <a href="#" class="text-white ms-1">SubFolder 1</a>
                             <span class="badge bg-secondary">0</span>                        
@@ -69,12 +69,12 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
         htmlEnd+=`</div></div></div></div>`;
 
       }else{
-        html+=`<div id="collapseSF1" class="ms-1 accordion-collapse collapse" aria-labelledby="headingPF" data-bs-parent="#accordionPF">
+        html+=`<div id="collapseSF1" class="ms-1 accordion-collapse collapse" aria-labelledby="headingSF1" data-bs-parent="#accordionPF">
                 <div class="accordion-body">
                   <div class="accordion" id="accordionSF1"
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingSF1">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseSF1-1">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseSF1">
                           <i class="bi bi-folder2"></i>
                           <a href="#" class="text-white ms-1">SubFolder 1</a>
                           <span class="badge bg-secondary">0</span>                    
@@ -89,24 +89,24 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     if(subfolder2Flag){
 
       if(subfolder3Flag){
-        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF3-1" data-bs-parent="accordionSF1">
+        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF2" data-bs-parent="accordionSF1">
                 <div class="accordion-body">
-                  <div class="accordion" id="accordionSF3">
+                  <div class="accordion" id="accordionSF2">
                     <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingSF3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF2" aria-expanded="false" aria-controls="collapseSF2">
+                      <h2 class="accordion-header" id="headingSF2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF3" aria-expanded="false" aria-controls="collapseSF2">
                           SubFolder 2  
                         </button>
                       </h2>`;
         htmlEnd+=`</div></div></div></div>`;
 
       }else{
-        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF3-1" data-bs-parent="accordionSF1">
+        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF2" data-bs-parent="accordionSF1">
                 <div class="accordion-body">
                   <div class="accordion" id="accordionSF2">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingSF2">
-                        <button class="btn btn-primary" type="button" data-bs-target="#collapseSF2" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseSF2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseSF2">
                           <i class="bi bi-folder2"></i>
                           <a href="#" class="text-white ms-1">SubFolder 2</a>
                           <span class="badge bg-secondary">0</span>                    
@@ -120,7 +120,7 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     }          
 
     if(subfolder3Flag){
-      html+=`<div id="collapseSF3" class="accordion-collapse collapse" aria-labelledby="headingSF3-2" data-bs-parent="accordionSF2">
+      html+=`<div id="collapseSF3" class="accordion-collapse collapse" aria-labelledby="headingSF3" data-bs-parent="accordionSF3">
               <div class="accordion-body">
                 <h2 class="accordion-header" id="headerSF3">
                   <button 
