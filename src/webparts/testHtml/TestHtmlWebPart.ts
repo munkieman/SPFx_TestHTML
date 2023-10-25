@@ -30,10 +30,10 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     alert(subfolder3Flag);
 
     if(subfolder1Flag){       
-      html+=`<div class="accordion" id="accordion1">
+      html+=`<div class="accordion" id="accordionPF">
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="btn btn-primary accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h2 class="accordion-header" id="headingPF">
+                    <button class="btn btn-primary accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF1" aria-expanded="true" aria-controls="collapseSF1">
                       <i class="bi bi-folder2"></i>
                       <a href="#" class="text-white ms-1">Folder</a>
                       <span class="badge bg-secondary">0</span>                    
@@ -41,7 +41,7 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
                   </h2>`;
 
     }else{
-      html+=`<div class="accordion" id="accordion1">
+      html+=`<div class="accordion" id="accordionPF">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
                     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
@@ -55,62 +55,90 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     if(subfolder1Flag){
 
       if(subfolder2Flag){
-        html+=`<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordion1">
-                  <div class="accordion-body">                              
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          SubFolder 1
-                        </button>
-                      </h2>`;
-        htmlEnd+=`</div></div></div>`;
+        html+=`<div id="collapseSF1" class="accordion-collapse collapse" aria-labelledby="headingSF1" data-bs-parent="#accordionPF">
+                  <div class="accordion-body">
+                    <div class="accordion" id="accordionSF1">                             
+                      <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSF1">
+                          <button class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF2" aria-expanded="false" aria-controls="collapseSF3-1">
+                            <i class="bi bi-folder2"></i>
+                            <a href="#" class="text-white ms-1">SubFolder 1</a>
+                            <span class="badge bg-secondary">0</span>                        
+                          </button>
+                        </h2>`;
+        htmlEnd+=`</div></div></div></div>`;
 
       }else{
-        html+=`<div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
-                    <i class="bi bi-folder2"></i>
-                    <a href="#" class="text-white ms-1">SubFolder 1</a>
-                    <span class="badge bg-secondary">0</span>                    
-                  </button>
-                </h2>
-              </div>`;
+        html+=`<div id="collapseSF1" class="ms-1 accordion-collapse collapse" aria-labelledby="headingPF" data-bs-parent="#accordionPF">
+                <div class="accordion-body">
+                  <div class="accordion" id="accordionSF1"
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingSF1">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseSF1-1">
+                          <i class="bi bi-folder2"></i>
+                          <a href="#" class="text-white ms-1">SubFolder 1</a>
+                          <span class="badge bg-secondary">0</span>                    
+                        </button>
+                      </h2>
+                    </div>
+                  </div>
+                </div>`;
       }               
     }
 
     if(subfolder2Flag){
 
       if(subfolder3Flag){
-        html+=`<div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SubFolder 2  
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordion1">
-                  <div class="accordion-body">
-                    <strong>This is the second items accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF3-1" data-bs-parent="accordionSF1">
+                <div class="accordion-body">
+                  <div class="accordion" id="accordionSF3">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingSF3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSF2" aria-expanded="false" aria-controls="collapseSF2">
+                          SubFolder 2  
+                        </button>
+                      </h2>`;
+        htmlEnd+=`</div></div></div></div>`;
+
+      }else{
+        html+=`<div id="collapseSF2" class="accordion-collapse collapse" aria-labelledby="headingSF3-1" data-bs-parent="accordionSF1">
+                <div class="accordion-body">
+                  <div class="accordion" id="accordionSF2">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingSF2">
+                        <button class="btn btn-primary" type="button" data-bs-target="#collapseSF2" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseSF2">
+                          <i class="bi bi-folder2"></i>
+                          <a href="#" class="text-white ms-1">SubFolder 2</a>
+                          <span class="badge bg-secondary">0</span>                    
+                        </button>
+                      </h2>
+                    </div>
                   </div>
                 </div>
               </div>`;
-      }else{
-        html+=`<div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
-                      <i class="bi bi-folder2"></i>
-                      <a href="#" class="text-white ms-1">SubFolder 2</a>
-                      <span class="badge bg-secondary">0</span>                    
-                    </button>
-                  </h2>
-                </div>`;
       }               
     }          
 
-    //if(subfolder3Flag){
-
-    //}else{
-
-    //}     
+    if(subfolder3Flag){
+      html+=`<div id="collapseSF3" class="accordion-collapse collapse" aria-labelledby="headingSF3-2" data-bs-parent="accordionSF2">
+              <div class="accordion-body">
+                <h2 class="accordion-header" id="headerSF3">
+                  <button 
+                    class="btn btn-primary" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#collapseSF3" 
+                    aria-expanded="true" 
+                    aria-controls="collapseSF3">
+                      <i class="bi bi-folder2"></i>
+                      <a href="#" id="subfolder3Name"> 
+                        Sub Folder 3
+                      </a>
+                  </button>
+                </h2>
+              </div>
+            </div>`;
+    }    
 
     html+=htmlEnd;
     html+=`</div></div>`;
@@ -139,7 +167,6 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
                 <button class="nav-link" id="guidesTab" data-bs-toggle="pill" data-bs-target="#guides" type="button" role="tab" aria-controls="guides" aria-selected="false">Guides</button>
                 <button class="nav-link" id="formsTab" data-bs-toggle="pill" data-bs-target="#forms" type="button" role="tab" aria-controls="forms" aria-selected="false">Forms</button>
                 <button class="nav-link" id="generalTab" data-bs-toggle="pill" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="false">General</button>
-                <button class="nav-link" id="managementTab" data-bs-toggle="pill" data-bs-target="#management" type="button" role="tab" aria-controls="management" aria-selected="false">Management</button>
               </div>
             </div>
           </div>
@@ -175,12 +202,6 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
                   <div class="col-6 v-scrollbar" id="generalFiles"></div>
                 </div> 
               </div>
-              <div class="tab-pane fade" id="management" role="tabpanel" aria-labelledby="managementTab">
-                <div class="row">
-                  <div class="col-6 v-scrollbar" id="mgmtFolders"></div>
-                  <div class="col-6 v-scrollbar" id="mgmtFiles"></div>
-                </div> 
-              </div>
             </div>
           </div>
         </div>
@@ -188,7 +209,13 @@ export default class TestHtmlWebPart extends BaseClientSideWebPart<ITestHtmlWebP
     </section>`;
 
 
-    this.checkFolder(true,true,false,"procsFolders");
+    //this.checkFolder(true,true,false,"procsFolders");
+    document.getElementById('policiesTab')!.addEventListener("click",(e:Event) => this.checkFolder(true,true,true,"policyFolders"));
+    document.getElementById('proceduresTab')!.addEventListener("click",(e:Event) => this.checkFolder(true,true,false,"procsFolders"));
+    document.getElementById('guidesTab')!.addEventListener("click",(e:Event) => this.checkFolder(true,false,false,"guidesFolders"));
+    document.getElementById('formsTab')!.addEventListener("click",(e:Event) => this.checkFolder(true,true,true,"formsFolders"));
+    document.getElementById('generalTab')!.addEventListener("click",(e:Event) => this.checkFolder(true,true,false,"generalFolders"));
+
   }
 
   public async onInit(): Promise<void> {
